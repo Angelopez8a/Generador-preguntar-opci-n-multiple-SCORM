@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Generador SCORM — Opción Múltiple</title>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <link rel="stylesheet" href="mcq_generator.css">
+  <script defer src="mcq_generator.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+
+  <h1>Generador — Opción Múltiple</h1>
+  <p class="subtitle">
+    Construye preguntas y opciones con texto + LaTeX (usando el glosario).
+  </p>
+
+  <!-- CONFIG -->
+  <div class="config-card">
+    <h2>Configuración</h2>
+
+    <label>Título</label>
+    <input id="tituloActividad" placeholder="Ej. Cuestionario de Álgebra Lineal">
+
+    <label>Identificador SCORM</label>
+    <input id="identificadorScorm" placeholder="Ej. ALG_LIN_Q1">
+
+    <label>Modo</label>
+    <select id="modo">
+      <option value="scorm">Calificable (Moodle SCORM)</option>
+      <option value="practica">No calificable (Práctica)</option>
+    </select>
+
+    <label>Puntos por defecto</label>
+    <input id="puntosDefecto" type="number" value="1" min="0">
+
+    <label>Barajar opciones</label>
+    <select id="shuffleOpciones">
+      <option value="1">Sí</option>
+      <option value="0">No</option>
+    </select>
+
+    <label>Mostrar retroalimentación por pregunta</label>
+    <select id="mostrarFeedback">
+      <option value="1">Sí</option>
+      <option value="0">No</option>
+    </select>
+  </div>
+
+  <div id="preguntasContainer"></div>
+
+  <div class="btn-row">
+    <button class="btn" id="btnAgregarPregunta">+ Agregar pregunta</button>
+    <button class="btn" id="btnGenerar">Generar archivos</button>
+  </div>
+
+  <div id="salida"></div>
+</div>
+</body>
+</html>
